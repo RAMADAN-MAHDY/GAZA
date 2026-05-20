@@ -3,6 +3,24 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const HeroSection = () => {
+  const headingText = "Forgotten Childhoods, Unseen Struggles";
+  const paragraphText = "In the shadows of our world, countless children bear burdens far beyond their years. This is their story.";
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -23,19 +41,27 @@ const HeroSection = () => {
       <div className="relative z-20 px-4 max-w-5xl mx-auto">
         <motion.h1
           className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6 font-heading"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          Forgotten Childhoods, Unseen Struggles
+          {headingText.split(" ").map((word, i) => (
+            <motion.span key={i} className="inline-block mr-2 md:mr-3" variants={itemVariants}>
+              {word}
+            </motion.span>
+          ))}
         </motion.h1>
         <motion.p
           className="text-lg md:text-2xl max-w-3xl mx-auto font-body text-[#E0E0E0]"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          In the shadows of our world, countless children bear burdens far beyond their years. This is their story.
+          {paragraphText.split(" ").map((word, i) => (
+            <motion.span key={i} className="inline-block mr-1.5 md:mr-2" variants={itemVariants}>
+              {word}
+            </motion.span>
+          ))}
         </motion.p>
         <motion.div
           className="mt-12"
