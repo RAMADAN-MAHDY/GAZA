@@ -1,12 +1,11 @@
 "use client";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const banners = [
   {
     id: 1,
-    image: "/images/copy_580E6EFA-269B-406B-91D1-8C33385A7CBA.jpeg",
+    image: "/images/copy_57FB187F-7423-4028-A47F-8C70F9A8EF7D.jpeg",
     title: "The Silent Toil",
     description: "Every day, dreams are traded for survival. Their silence speaks volumes."
   },
@@ -30,7 +29,7 @@ const BannerSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -63,15 +62,20 @@ const BannerSection = () => {
 
   return (
     <motion.section
-      className="py-16 bg-zinc-800 text-white relative"
+      className="py-20 bg-dark-card text-white relative"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8 }}
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 font-heading">Beyond the Headlines</h2>
-        <div className="relative h-96 md:h-[500px] overflow-hidden rounded-lg shadow-lg overscroll-y-contain">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 font-heading">
+          Beyond the Headlines
+        </h2>
+        <p className="text-dark-text-light text-center mb-12 max-w-2xl mx-auto font-body">
+          Witness the realities that often go unseen
+        </p>
+        <div className="relative h-[400px] md:h-[500px] overflow-hidden rounded-2xl shadow-2xl">
           <AnimatePresence initial={false} custom={currentIndex}>
             <motion.div
               key={currentIndex}
@@ -82,21 +86,24 @@ const BannerSection = () => {
               exit="exit"
               transition={{
                 x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 },
+                opacity: { duration: 0.3 },
               }}
               className="absolute inset-0 flex items-center justify-center"
             >
-              <Image
+              <img
                 src={currentBanner.image}
                 alt={currentBanner.title}
-                layout="fill"
-                objectFit="cover"
-                quality={100}
-                className="absolute inset-0 z-0"
+                className="object-cover absolute inset-0 z-0 w-full h-full"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-20 backdrop-filter backdrop-blur-sm flex flex-col items-center justify-center p-4 text-center z-10 rounded-lg border border-gray-700 shadow-lg">
-                <h3 className="text-3xl font-bold mb-2 font-heading text-white drop-shadow-md">{currentBanner.title}</h3>
-                <p className="text-base md:text-lg max-w-md font-body text-gray-200 drop-shadow-sm">{currentBanner.description}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
+              <div className="absolute inset-0 bg-dark/30 backdrop-blur-sm flex flex-col items-center justify-center p-8 text-center z-10 rounded-2xl">
+                <div className="w-20 h-1 bg-dark-accent mb-6 rounded-full"></div>
+                <h3 className="text-3xl md:text-5xl font-bold mb-4 font-heading text-white drop-shadow-2xl">
+                  {currentBanner.title}
+                </h3>
+                <p className="text-base md:text-xl max-w-2xl font-body text-dark-text drop-shadow-lg">
+                  {currentBanner.description}
+                </p>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -104,31 +111,37 @@ const BannerSection = () => {
           {/* Navigation Buttons */}
           <button
             onClick={handlePrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full z-20 hover:bg-opacity-75 transition-colors"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-dark/80 hover:bg-dark-accent text-white p-3 rounded-full z-20 transition-all duration-300 hover:scale-110"
           >
-            &#10094;
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full z-20 hover:bg-opacity-75 transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-dark/80 hover:bg-dark-accent text-white p-3 rounded-full z-20 transition-all duration-300 hover:scale-110"
           >
-            &#10095;
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </button>
 
           {/* Dots Indicator */}
-          <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+          <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3 z-20">
             {banners.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-3 w-3 rounded-full ${
-                  index === currentIndex ? "bg-white" : "bg-gray-500"
-                } transition-colors`}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? "w-10 bg-dark-accent" 
+                    : "w-2 bg-dark-text-light/50 hover:bg-dark-text-light"
+                }`}
               ></button>
             ))}
           </div>
         </div>
-        </div>
+      </div>
     </motion.section>
   );
 };

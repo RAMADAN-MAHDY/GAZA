@@ -20,7 +20,7 @@ const InterviewsSection: React.FC<InterviewsSectionProps> = ({ interviews }) => 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % interviews.length);
-    }, 7000); // Change slide every 7 seconds
+    }, 8000);
     return () => clearInterval(interval);
   }, []);
 
@@ -53,15 +53,23 @@ const InterviewsSection: React.FC<InterviewsSectionProps> = ({ interviews }) => 
 
   return (
     <motion.section
-      className="py-16 bg-zinc-950 text-white relative"
+      className="py-20 bg-dark text-white relative"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8 }}
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 font-heading">Voices of Resilience</h2>
-        <div className="relative h-[300px] md:h-[250px] flex items-center justify-center overflow-hidden overscroll-y-contain">
+        <div className="text-center mb-12">
+          <div className="w-24 h-1 bg-dark-accent mx-auto mb-6 rounded-full"></div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-heading">
+            Voices of Resilience
+          </h2>
+          <p className="text-dark-text-light max-w-2xl mx-auto font-body">
+            Hear directly from those whose lives have been impacted
+          </p>
+        </div>
+        <div className="relative h-[350px] md:h-[300px] flex items-center justify-center overflow-hidden">
           <AnimatePresence initial={false} custom={currentIndex}>
             <motion.div
               key={currentIndex}
@@ -72,12 +80,11 @@ const InterviewsSection: React.FC<InterviewsSectionProps> = ({ interviews }) => 
               exit="exit"
               transition={{
                 x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 },
+                opacity: { duration: 0.3 },
               }}
-              className="absolute inset-0 flex items-center justify-center bg-cover bg-center rounded-lg"
+              className="absolute inset-0 flex items-center justify-center"
             >
-              <div className="absolute inset-0 bg-black bg-opacity-40 rounded-lg"></div> {/* Overlay for text readability */}
-              <div className="relative z-10 w-full max-w-2xl">
+              <div className="w-full max-w-4xl">
                 <InterviewCard {...currentInterview} />
               </div>
             </motion.div>
@@ -86,31 +93,35 @@ const InterviewsSection: React.FC<InterviewsSectionProps> = ({ interviews }) => 
           {/* Navigation Buttons */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 md:-left-10 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full z-20 hover:bg-opacity-75 transition-colors text-xl"
+            className="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 bg-dark-card hover:bg-dark-accent text-white p-3 rounded-full z-20 transition-all duration-300 hover:scale-110 border border-dark"
           >
-            &#10094;
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-0 md:-right-10 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full z-20 hover:bg-opacity-75 transition-colors text-xl"
+            className="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 bg-dark-card hover:bg-dark-accent text-white p-3 rounded-full z-20 transition-all duration-300 hover:scale-110 border border-dark"
           >
-            &#10095;
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </button>
 
           {/* Dots Indicator */}
-          <div className="absolute bottom-[-40px] left-0 right-0 flex justify-center gap-2 z-20">
+          <div className="absolute bottom-[-60px] left-0 right-0 flex justify-center gap-2 z-20">
             {interviews.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-3 w-3 rounded-full ${
-                  index === currentIndex ? "bg-white" : "bg-gray-500"
-                } transition-colors`}
+                className={`h-2 w-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex ? "bg-dark-accent w-8" : "bg-dark-text-light/50"
+                }`}
               ></button>
             ))}
           </div>
         </div>
-        </div>
+      </div>
     </motion.section>
   );
 };

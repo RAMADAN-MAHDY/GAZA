@@ -7,7 +7,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-zinc-950 text-zinc-50;
+    @apply bg-dark text-dark-text;
   }
 }
 
