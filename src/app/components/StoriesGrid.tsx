@@ -31,7 +31,7 @@ const StoriesGrid: React.FC<StoriesGridProps> = ({ stories }) => {
 
   return (
     <motion.section
-      className="py-20 bg-dark text-white"
+      className="py-20 bg-[#0A0A0A] text-white"
       initial={{ opacity: 1, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
@@ -39,11 +39,11 @@ const StoriesGrid: React.FC<StoriesGridProps> = ({ stories }) => {
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="w-24 h-1 bg-dark-accent mx-auto mb-6 rounded-full"></div>
+          <div className="w-24 h-1 bg-[#A31B1B] mx-auto mb-6 rounded-full"></div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-heading">
             Their Stories, Our Reality
           </h2>
-          <p className="text-dark-text-light max-w-2xl mx-auto font-body">
+          <p className="text-[#A0A0A0] max-w-2xl mx-auto font-body">
             Each image tells a story of resilience, struggle, and the human spirit
           </p>
         </div>

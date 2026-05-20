@@ -21,7 +21,7 @@ const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, story }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-dark/90 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+          className="fixed inset-0 bg-[#0A0A0A]/90 backdrop-blur-sm flex items-center justify-center p-4 z-50"
           onClick={onClose}
         >
           <motion.div
@@ -29,12 +29,12 @@ const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, story }) => {
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: -50, opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", damping: 25 }}
-            className="relative bg-dark-card rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-dark"
+            className="relative bg-[#1A1A1A] rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-[#0A0A0A]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 text-white text-2xl font-bold z-10 p-2 rounded-full bg-dark/80 hover:bg-dark-accent transition-all duration-300 hover:rotate-90"
+              className="absolute top-4 right-4 text-white text-2xl font-bold z-10 p-2 rounded-full bg-[#0A0A0A]/80 hover:bg-[#A31B1B] transition-all duration-300 hover:rotate-90"
             >
               &times;
             </button>
@@ -44,18 +44,18 @@ const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, story }) => {
                 alt={story.title}
                 className="object-cover w-full h-full"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] to-transparent"></div>
             </div>
             <div className="p-8">
-              <div className="w-16 h-1 bg-dark-accent mb-6 rounded-full"></div>
+              <div className="w-16 h-1 bg-[#A31B1B] mb-6 rounded-full"></div>
               <h3 className="text-3xl font-bold text-white mb-4 font-heading">
                 {story.title}
               </h3>
-              <p className="text-dark-text-light text-lg mb-6 font-body">
+              <p className="text-[#A0A0A0] text-lg mb-6 font-body">
                 {story.arabicContext}
               </p>
-              <div className="pt-6 border-t border-dark">
-                <p className="text-dark-text-light text-sm font-body">
+              <div className="pt-6 border-t border-[#0A0A0A]">
+                <p className="text-[#A0A0A0] text-sm font-body">
                   Click outside or press the × to close
                 </p>
               </div>

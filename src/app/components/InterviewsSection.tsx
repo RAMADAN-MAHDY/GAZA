@@ -53,7 +53,7 @@ const InterviewsSection: React.FC<InterviewsSectionProps> = ({ interviews }) => 
 
   return (
     <motion.section
-      className="py-20 bg-dark text-white relative"
+      className="py-20 bg-[#0A0A0A] text-white relative"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
@@ -61,11 +61,11 @@ const InterviewsSection: React.FC<InterviewsSectionProps> = ({ interviews }) => 
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <div className="w-24 h-1 bg-dark-accent mx-auto mb-6 rounded-full"></div>
+          <div className="w-24 h-1 bg-[#A31B1B] mx-auto mb-6 rounded-full"></div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-heading">
             Voices of Resilience
           </h2>
-          <p className="text-dark-text-light max-w-2xl mx-auto font-body">
+          <p className="text-[#A0A0A0] max-w-2xl mx-auto font-body">
             Hear directly from those whose lives have been impacted
           </p>
         </div>
@@ -93,7 +93,7 @@ const InterviewsSection: React.FC<InterviewsSectionProps> = ({ interviews }) => 
           {/* Navigation Buttons */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 bg-dark-card hover:bg-dark-accent text-white p-3 rounded-full z-20 transition-all duration-300 hover:scale-110 border border-dark"
+            className="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 bg-[#1A1A1A] hover:bg-[#A31B1B] text-white p-3 rounded-full z-20 transition-all duration-300 hover:scale-110 border border-[#0A0A0A]"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -101,7 +101,7 @@ const InterviewsSection: React.FC<InterviewsSectionProps> = ({ interviews }) => 
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 bg-dark-card hover:bg-dark-accent text-white p-3 rounded-full z-20 transition-all duration-300 hover:scale-110 border border-dark"
+            className="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 bg-[#1A1A1A] hover:bg-[#A31B1B] text-white p-3 rounded-full z-20 transition-all duration-300 hover:scale-110 border border-[#0A0A0A]"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -115,7 +115,7 @@ const InterviewsSection: React.FC<InterviewsSectionProps> = ({ interviews }) => 
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? "bg-dark-accent w-8" : "bg-dark-text-light/50"
+                  index === currentIndex ? "bg-[#A31B1B] w-8" : "bg-[#A0A0A0]/50"
                 }`}
               ></button>
             ))}
