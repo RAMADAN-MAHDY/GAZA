@@ -71,7 +71,7 @@ const BannerSection = () => {
     >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 font-heading">Beyond the Headlines</h2>
-        <div className="relative h-96 md:h-[500px] overflow-hidden rounded-lg shadow-lg">
+        <div className="relative h-96 md:h-[500px] overflow-hidden rounded-lg shadow-lg overscroll-y-contain">
           <AnimatePresence initial={false} custom={currentIndex}>
             <motion.div
               key={currentIndex}

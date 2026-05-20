@@ -61,7 +61,7 @@ const InterviewsSection: React.FC<InterviewsSectionProps> = ({ interviews }) => 
     >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12 font-heading">Voices of Resilience</h2>
-        <div className="relative h-[300px] md:h-[250px] flex items-center justify-center">
+        <div className="relative h-[300px] md:h-[250px] flex items-center justify-center overflow-hidden overscroll-y-contain">
           <AnimatePresence initial={false} custom={currentIndex}>
             <motion.div
               key={currentIndex}
