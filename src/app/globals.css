@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-zinc-950 text-zinc-50;
   }
@@ -23,4 +26,17 @@
 
 .animation-delay-500 {
   animation-delay: 0.5s;
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-zoom-in {
+  animation: zoom-in 8s ease-out infinite alternate;
 }
