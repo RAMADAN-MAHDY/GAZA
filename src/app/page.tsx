@@ -2,6 +2,7 @@ import HeroSection from "./components/HeroSection";
 import StoriesGrid from "./components/StoriesGrid";
 import InterviewsSection from "./components/InterviewsSection";
 import Footer from "./components/Footer";
+import BannerSection from "./components/BannerSection";
 
 const childrenStories = [
   {
@@ -103,6 +104,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-900 text-white">
       <HeroSection />
+      <BannerSection />
       <StoriesGrid stories={childrenStories} />
       <InterviewsSection interviews={interviews} />
       <Footer />

@@ -8,20 +8,17 @@ interface StoryCardProps {
 
 const StoryCard: React.FC<StoryCardProps> = ({ title, caption, imagePlaceholder }) => {
   return (
-    <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+    <div className="relative overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 ease-in-out bg-zinc-800">
       <Image
         src={imagePlaceholder}
         alt={title}
-        width={500} // Adjust width as needed
-        height={300} // Adjust height as needed
-        layout="responsive"
-        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300 ease-in-out"
+        width={500}
+        height={300}
+        className="object-cover w-full h-48 md:h-64"
       />
-      <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-        <div className="text-center">
-          <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-          <p className="text-sm text-gray-200">{caption}</p>
-        </div>
+      <div className="p-4">
+        <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
+        <p className="text-sm text-gray-300">{caption}</p>
       </div>
     </div>
   );
