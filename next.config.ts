@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
     // It ensures that Tailwind CSS is processed correctly.
     optimizeCss: true,
   },
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
