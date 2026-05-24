@@ -5,6 +5,38 @@ import Footer from "./components/Footer";
 import BannerSection from "./components/BannerSection";
 import GeneralDescription from "./components/GeneralDescription";
 import ClientContentWrapper from "./components/ClientContentWrapper";
+import type { Metadata } from "next";
+import Script from "next/script";
+
+export const metadata: Metadata = {
+  title: "Gaza Children's Stories - Home",
+  description: "Explore the poignant stories and interviews of children in Gaza, highlighting their resilience amidst war, lack of basic necessities, and educational challenges.",
+  keywords: ["Gaza children stories", "Palestine war impact", "children's suffering Gaza", "Gaza humanitarian crisis", "education in Gaza", "resilience of Gaza kids", "human rights Gaza"],
+  openGraph: {
+    title: "Gaza Children's Stories - Home",
+    description: "Explore the poignant stories and interviews of children in Gaza, highlighting their resilience amidst war, lack of basic necessities, and educational challenges.",
+    url: "https://gaza-eight.vercel.app", // Replace with your actual domain
+    siteName: "Gaza Children's Stories",
+    images: [
+      {
+        url: "https://gaza-eight.vercel.app/images/copy_E3DBB88C-AE75-44CA-B200-4CF6A554BFEE.jpeg", // Replace with a relevant OG image
+        width: 1200,
+        height: 630,
+        alt: "Children of Gaza enduring hardship",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gaza Children's Stories - Home",
+    description: "Explore the poignant stories and interviews of children in Gaza, highlighting their resilience amidst war, lack of basic necessities, and educational challenges.",
+    creator: "@your_twitter_handle", // Replace with your Twitter handle
+    images: ["https://gaza-eight.vercel.app/images/copy_E3DBB88C-AE75-44CA-B200-4CF6A554BFEE.jpeg"], // Replace with a relevant Twitter image
+  },
+};
+
 // import { motion } from "framer-motion"; // No longer needed here
 
 const childrenStories = [
@@ -100,6 +132,27 @@ const interviews = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-900 text-white">
+      <Script
+        id="json-ld-webpage"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Gaza Children's Stories",
+            "description": "A website dedicated to documenting the stories of Gaza's children affected by war, lack of basic necessities, and education. We aim to highlight their suffering and resilience.",
+            "url": "https://gaza-eight.vercel.app", // Replace with your actual domain
+            "publisher": {
+              "@type": "Organization",
+              "name": "Gaza Children's Stories Initiative", // Replace with your organization name
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://gaza-eight.vercel.app/logo/OIP.webp" // Replace with your actual logo URL
+              }
+            }
+          })
+        }}
+      />
       <HeroSection />
       <ClientContentWrapper childrenStories={childrenStories} interviews={interviews} />
     </div>

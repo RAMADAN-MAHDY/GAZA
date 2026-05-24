@@ -1,0 +1,21 @@
+{
+  "name": "Gaza Children's Stories",
+  "short_name": "Gaza Kids",
+  "description": "Documenting the stories of Gaza's children affected by war, lack of basic necessities, and education.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#A31B1B",
+  "icons": [
+    {
+      "src": "/logo/OIP.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "/logo/OIP.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}
